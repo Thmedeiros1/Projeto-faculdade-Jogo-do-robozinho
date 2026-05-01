@@ -5,6 +5,7 @@ import java.util.ArrayList;
  * CLASSE: Inventario
  * CONCEITO POO: Encapsulamento (ArrayList privado)
  */
+
 public class Inventario {
     
     private ArrayList<Item> itens = new ArrayList<>();
@@ -20,7 +21,9 @@ public class Inventario {
             return;
         }
         for (int i = 0; i < itens.size(); i++) {
-            System.out.println("   " + (i + 1) + " - " + itens.get(i).getNome());
+            Item item = itens.get(i);
+            String tipo = (item instanceof ItemEquipavel) ? " [EQUIPÁVEL]" : " [CONSUMÍVEL]";
+            System.out.println("   " + (i + 1) + " - " + item.getNome() + tipo);
         }
     }
     
@@ -29,6 +32,22 @@ public class Inventario {
         Item item = itens.remove(indice);
         System.out.println("📦 Usando: " + item.getNome());
         return item;
+    }
+    
+    public void equiparItem(int indice, Jogador j) {
+        if (indice < 0 || indice >= itens.size()) {
+            System.out.println("❌ Índice inválido!");
+            return;
+        }
+        
+        Item item = itens.get(indice);
+        if (item instanceof ItemEquipavel) {
+            itens.remove(indice);
+            item.usar(j, null);
+            System.out.println("✅ Item equipado com sucesso!");
+        } else {
+            System.out.println("❌ Este item não pode ser equipado! Use durante o combate.");
+        }
     }
     
     public boolean vazio() { 

@@ -6,11 +6,9 @@ import java.util.Scanner;
  * CONCEITO POO: Classe com métodos estáticos (utilitária)
  * SISTEMA DE SORTE: Uso de Math.random() para dano variável
  */
+
 public class Combate {
     
-    /**
-     * MÉTODO ESTÁTICO - inicia combate por turnos com sistema de sorte
-     */
     public static void iniciar(Jogador j, Inimigo i, Scanner sc) {
         System.out.println("\n⚔️⚔️⚔️ COMBATE INICIADO ⚔️⚔️⚔️");
         System.out.println("🎯 Inimigo: " + i.getNome() + " (Vida: " + i.getVida() + ")");
@@ -20,13 +18,14 @@ public class Combate {
             
             System.out.println("\n[ " + i.getNome() + " ] Vida: " + i.getVida() + "/" + i.getVidaMaxima());
             System.out.println("[ Você ] Energia: " + j.getEnergia() + "/100");
-            System.out.println("[ Dados ] 🎲 Força base: " + j.getForcaTotal());
+            System.out.println("[ Dados ] 🎲 Força base: " + j.getForca() + " | Força total com equipamento: " + j.getForcaTotal());
             
             System.out.println("\n📋 AÇÕES:");
             System.out.println("   1 - ⚔️ Ataque Normal (dano: 1 a " + (5 + j.getForcaTotal()) + ")");
             System.out.println("   2 - 💥 Ataque Especial (dano: 2 a " + (15 + j.getForcaTotal() * 2) + ", custo 15 energia)");
             System.out.println("   3 - 🧪 Usar Item");
             System.out.println("   4 - 🏃 Fugir (chance: " + (30 + j.getDestreza() * 5) + "%)");
+            System.out.println("   5 - 📊 Ver status do combate");
             System.out.print("Escolha: ");
             
             int escolha;
@@ -41,33 +40,31 @@ public class Combate {
             
             switch (escolha) {
                 case 1:
-                    // ATAQUE NORMAL COM SORTE: dano entre 1 e (5 + força)
+                    // ATAQUE NORMAL COM SORTE - USANDO ForçaTotal
                     int danoBase = 5 + j.getForcaTotal();
                     int danoAtaque = 1 + (int)(Math.random() * danoBase);
                     i.receberDano(danoAtaque);
-                    System.out.println("⚔️ ATAQUE NORMAL! 🎲 Dado rolou: " + danoAtaque + "!");
-                    System.out.println("   Causou " + danoAtaque + " de dano!");
+                    System.out.println("⚔️ ATAQUE NORMAL! 🎲 Dano: " + danoAtaque + " (Força base: " + j.getForca() + " + equipamento: " + (j.getForcaTotal() - j.getForca()) + ")");
                     acaoRealizada = true;
                     break;
                     
                 case 2:
-                    // ATAQUE ESPECIAL COM SORTE: dano entre 2 e (15 + força*2)
+                    // ATAQUE ESPECIAL COM SORTE - USANDO ForçaTotal
                     if (j.getEnergia() >= 15) {
                         int danoEspecialBase = 15 + (j.getForcaTotal() * 2);
                         int danoEspecial = 2 + (int)(Math.random() * danoEspecialBase);
                         i.receberDano(danoEspecial);
                         j.consumirEnergia(15);
-                        System.out.println("💥 ATAQUE ESPECIAL! 🎲 Dado rolou: " + danoEspecial + "!");
-                        System.out.println("   Causou " + danoEspecial + " de dano! (-15 energia)");
+                        System.out.println("💥 ATAQUE ESPECIAL! 🎲 Dano: " + danoEspecial + "! (-15 energia)");
                         acaoRealizada = true;
                     } else {
-                        System.out.println("❌ Energia insuficiente para ataque especial! (Precisa de 15)");
+                        System.out.println("❌ Energia insuficiente! Precisa de 15 energia.");
                     }
                     break;
                     
                 case 3:
                     // USAR ITEM
-                    if (j.getInventario().tamanho() > 0) {  // ← CORRIGIDO
+                    if (j.getInventario().tamanho() > 0) {
                         System.out.println("\n📦 Itens disponíveis:");
                         j.getInventario().listar();
                         System.out.print("Qual item usar? (0 para cancelar): ");
@@ -76,8 +73,15 @@ public class Combate {
                             idx = Integer.parseInt(sc.next()) - 1;
                             if (idx >= 0) {
                                 Item item = j.getInventario().usar(idx);
-                                if (item != null) item.usar(j, i);
-                                acaoRealizada = true;
+                                if (item != null) {
+                                    if (item instanceof ItemEquipavel) {
+                                        item.usar(j, i);
+                                        acaoRealizada = true;
+                                    } else {
+                                        item.usar(j, i);
+                                        acaoRealizada = true;
+                                    }
+                                }
                             }
                         } catch (NumberFormatException e) {
                             System.out.println("❌ Inválido!");
@@ -88,7 +92,7 @@ public class Combate {
                     break;
                     
                 case 4:
-                    // FUGIR COM SORTE
+                    // FUGIR
                     int chanceFuga = 30 + j.getDestreza() * 5;
                     int dadoFuga = 1 + (int)(Math.random() * 100);
                     System.out.println("🎲 Dado de fuga: " + dadoFuga + " (precisa <= " + chanceFuga + ")");
@@ -101,26 +105,32 @@ public class Combate {
                     }
                     break;
                     
+                case 5:
+                    System.out.println("\n📊 STATUS DE COMBATE:");
+                    System.out.println("   💪 Força base: " + j.getForca());
+                    System.out.println("   ⚔️ Bônus de arma: " + (j.getArma() != null ? j.getArma().getBonusForca() : 0));
+                    System.out.println("   💥 Força total: " + j.getForcaTotal());
+                    System.out.println("   🧠 Inteligência total: " + j.getInteligenciaTotal());
+                    acaoRealizada = false;
+                    break;
+                    
                 default:
                     System.out.println("❌ Opção inválida!");
             }
             
-            // TURNO DO INIMIGO (também com sorte!)
+            // TURNO DO INIMIGO
             if (acaoRealizada && i.estaVivo()) {
                 System.out.println("\n--- Turno do Inimigo ---");
                 
-                // Chance de usar habilidade especial (30%)
                 if (Math.random() < 0.3) {
                     i.usarHabilidade(j);
                 } else {
-                    // Dano do inimigo também tem variação de sorte! (+- 30%)
                     int danoBaseInimigo = i.atacar();
                     int variacao = (int)(Math.random() * (danoBaseInimigo * 0.6)) - (int)(danoBaseInimigo * 0.3);
                     int danoFinal = Math.max(1, danoBaseInimigo + variacao);
                     
                     j.consumirEnergia(danoFinal);
                     System.out.println("🤖 " + i.getNome() + " atacou! 🎲 Dano: " + danoFinal + "!");
-                    System.out.println("   Você perdeu " + danoFinal + " energia!");
                 }
             }
         }
@@ -128,7 +138,7 @@ public class Combate {
         // RESULTADO DO COMBATE
         if (!i.estaVivo()) {
             System.out.println("\n✅ VITÓRIA! " + i.getNome() + " foi derrotado!");
-            int recompensa = 20 + (int)(Math.random() * 20); // recompensa variável
+            int recompensa = 20 + (int)(Math.random() * 20);
             j.recuperarEnergia(recompensa);
             System.out.println("🎁 Recompensa: +" + recompensa + " energia!");
         } else if (!j.temEnergia()) {

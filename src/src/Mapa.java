@@ -238,9 +238,20 @@ public class Mapa {
             int verInv = Integer.parseInt(sc.next());
             if (verInv == 1) {
                 j.getInventario().listar();
+                
+                if (j.getInventario().tamanho() > 0) {
+                    System.out.print("\nDeseja equipar algum item? (1-Sim / 2-Não): ");
+                    int equipar = Integer.parseInt(sc.next());
+                    if (equipar == 1) {
+                        System.out.print("Número do item para equipar: ");
+                        int idx = Integer.parseInt(sc.next()) - 1;
+                        j.getInventario().equiparItem(idx, j);
+                    }
+                }
             }
         } catch (NumberFormatException e) {
             System.out.println("Opção inválida!");
         }
+        
     }
 }

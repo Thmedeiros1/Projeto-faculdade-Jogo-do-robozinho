@@ -21,8 +21,6 @@ public class Jogo {
 
         // LOOP PRINCIPAL DO JOGO
         while (jogoAtivo && jogador.temBackups() && jogador.getProgresso() < 5) {
-
-            EventoAleatorio.gerar(jogador, scanner);
             exibirHUD();
             mapa.exibir(jogador, scanner, this);
 
