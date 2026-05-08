@@ -17,7 +17,7 @@ public abstract class Cena {
     public void iniciarCena() {
         while (dialogoAtual < dialogos.size()) {
             System.out.println(dialogos.get(dialogoAtual));
-            System.out.println("(Insira qualquer tecla...)");
+            System.out.println("(Insira qualquer tecla para continuar...)");
             scanner.next();
             dialogoAtual++;
         }
@@ -41,7 +41,7 @@ public abstract class Cena {
         numeroAleatorio = (int)((Math.random() * cenasAleatorias.size()));
         switch(numeroAleatorio) {
             // Criar um case para cada cena aleatória
-            case 1:
+            case 0:
                 cenasAleatorias.remove(numeroAleatorio);
                 return (Cena) new CenaAleatoria01();
             default:
