@@ -8,8 +8,8 @@ Package (Pacote) - É uma pasta com um conjunto de classes Java
 
 Esse pacote contêm todas as classes que envolvam o jogador, inimigos e NPCs. Esses três herdam de uma classe abstrata "Personagem". A classa abstrata possui três construtores possíveis e os getters de todos os atributos definidos nela.
 
-- Criar método para 'criação de personagem' em Jogador que deverá receber do usuário o nome pro Jogador e a distribuição de status desejada
-  - Vejam 'private void criarJogador()' em Jogo.java feita pelo Thiago, ela é a referência pra esse método. Importante notar, o método feito por ele tem um erro na distribuição de status, então não adianta copiar e colar como está lá.
+- ~~Criar método para 'criação de personagem' em Jogador que deverá receber do usuário o nome pro Jogador e a distribuição de status desejada~~
+  - ~~Vejam 'private void criarJogador()' em Jogo.java feita pelo Thiago, ela é a referência pra esse método. Importante notar, o método feito por ele tem um erro na distribuição de status, então não adianta copiar e colar como está lá.~~
 
 - Criar as classes para Itens, ItensEquipáveis e Inventário
   - Os dois possíveis itens equipáveis são 'Armadura' e 'Arma'.
