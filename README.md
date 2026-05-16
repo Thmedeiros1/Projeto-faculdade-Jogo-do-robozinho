@@ -24,7 +24,7 @@ Esse pacote contêm todas as classes que envolvam o jogador, inimigos e NPCs. Es
 - A classe de Inimigo é uma classe genérica que vamos usar para inimigos comuns na criação de cenas mas ela também servirá como superclasse de inimigos mais especializados, como chefes
   - Por enquanto não temos ideias de que tipo de inimigos especializados vamos fazer
 
-## Package: Cenas
+## Package: construtoresDeCenas
 
 Esse pacote contêm todas as classes que envolvam a composição de uma cena. A classe abstrata "Cena" define os comportamentos compartilhados entre cenas principais e cenas aleatórias. Cada cena que vamos mostrar pro jogador vai ser uma herdeira dessa abstrata.
 
@@ -33,11 +33,15 @@ Esse pacote contêm todas as classes que envolvam a composição de uma cena. A 
 - Alterar a classe Cena para que ela possa aceitar instâncias de Combate.
   - A parte complexa é alinhar quando o combate deve acontecer dentro da cena. Quando a cena receber uma instância de combate, vamos precisar indicar também após qual diálogo ele deverá começar.
 
-- Criar classe 'Opcao' que representa as escolhas que o usuário poderá tomar em dado momento dentro de uma Cena.
+- ~~Criar classe 'Opcao' que representa as escolhas que o usuário poderá tomar em dado momento dentro de uma Cena.~~
 
-- Alterar a classe Cena para que ela possa aceitar instâncias de Opcao
-  - Novamente, o complexo é alinhar quando essas opções serão dadas ao jogador e como fazer esses caminhos divergentes dentro da classe.
+- ~~Alterar a classe Cena para que ela possa aceitar instâncias de Opcao~~
+  - ~~Novamente, o complexo é alinhar quando essas opções serão dadas ao jogador e como fazer esses caminhos divergentes dentro da classe.~~
 
-## Classe Main
+## Package: Cenas
 
-A classe main (ainda não criada) será a classe principal do jogo, aonde vamos instanciar as cenas e controlar o fluxo de eventos. Nela vamos ter a instanciação direta das cenas principais e as chamadas ao método estático 'getCenaAleatoria'. Será aqui também que vamos controlar algumas exceções de erro possíveis pelo usuário, mas veremos depois que os pacotes acima estiverem construídos.
+Esse pacote contêm todas as cenas que estamos construindo para o jogo.
+
+## Classe Jogo
+
+É a classe principal do jogo, aonde vamos instanciar as cenas e controlar o fluxo de eventos. Nela vamos ter a instanciação direta das cenas principais e as chamadas ao método estático 'getCenaAleatoria'. Será aqui também que vamos controlar algumas exceções de erro possíveis pelo usuário, mas veremos depois que os pacotes acima estiverem construídos.
