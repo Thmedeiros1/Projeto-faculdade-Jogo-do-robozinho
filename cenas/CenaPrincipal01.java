@@ -14,10 +14,12 @@ public class CenaPrincipal01 extends Cena {
         elementos.add(new Dialogo("Tudo bem! Você tem bastante tempo para decidir!"));
         // Elemento 3
         elementos.add(new Dialogo("Afinal, este é um grande mundo!"));
+        // Elemento 4
         elementos.add(new FimCena());
 
-        // Elemento 4
+        // Elemento 5
         elementos.add(new Dialogo("Então vamos correr!"));
+        // Elemento 6
         elementos.add(new FimCena());
     }
 }
