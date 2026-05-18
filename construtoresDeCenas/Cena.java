@@ -29,7 +29,7 @@ public abstract class Cena {
                 System.out.println(escolha.pergunta);
 
                 for (int i = 0; i < escolha.opcoes.size(); i++) {
-                    System.out.println((i + 1) + ": " + escolha.opcoes.get(i).getTexto());
+                    System.out.println((i + 1) + ": " + escolha.opcoes.get(i).texto);
                 }
 
                 int numOpcoes = escolha.opcoes.size();
@@ -37,7 +37,7 @@ public abstract class Cena {
                 // esse tratamento de excessões, por enquanto vou deixar aqui
                 int escolhaUsuario = getEscolhaUsuario(numOpcoes);
                 Opcao opcaoEscolhida = escolha.opcoes.get(escolhaUsuario - 1);
-                elementoAtual = opcaoEscolhida.getProximoElemento();
+                elementoAtual = opcaoEscolhida.proximoElemento;
             } else
             if (elemento instanceof FimCena) {
                 elementoAtual = -1;

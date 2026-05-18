@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class PontoDeEscolha extends ElementoCena {
-    public String pergunta;
-    public ArrayList<Opcao> opcoes;
+    protected String pergunta;
+    protected ArrayList<Opcao> opcoes;
 
     /*
     A sintaxe (Classe)... na assinatura do método é uma funcionalidade do Java

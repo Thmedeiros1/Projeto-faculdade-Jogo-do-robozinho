@@ -38,7 +38,7 @@ Esse pacote contêm todas as classes que envolvam a composição de uma cena. A 
 - ~~Alterar a classe Cena para que ela possa aceitar instâncias de Opcao~~
   - ~~Novamente, o complexo é alinhar quando essas opções serão dadas ao jogador e como fazer esses caminhos divergentes dentro da classe.~~
 
-- Encapsular os atributos dos construtores, imagino que utilizar protected seja melhor do que private com getters e setters
+- ~~Encapsular os atributos dos construtores, imagino que utilizar protected seja melhor do que private com getters e setters~~
 
 ## Package: Cenas
 

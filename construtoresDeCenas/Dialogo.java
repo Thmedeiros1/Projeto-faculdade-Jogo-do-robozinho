@@ -1,5 +1,5 @@
 public class Dialogo extends ElementoCena {
-    public String texto;
+    protected String texto;
 
     public Dialogo(String texto) {
         this.texto = texto;
