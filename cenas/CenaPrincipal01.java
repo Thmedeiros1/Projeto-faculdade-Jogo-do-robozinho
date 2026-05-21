@@ -6,7 +6,7 @@ import construtoresDeCenas.FimCena;
 import construtoresDeCenas.Opcao;
 import construtoresDeCenas.PontoDeEscolha;
 import construtoresDeCenas.acoes.AcaoDarItem;
-import personagens.itens.ItemEquipavel;
+import personagens.itens.Arma;
 
 public class CenaPrincipal01 extends Cena {
     public CenaPrincipal01() {
@@ -32,7 +32,7 @@ public class CenaPrincipal01 extends Cena {
         // Elemento 6
         elementos.add(new Dialogo("Você encontra uma espada na grama!"));
         // Elemento 7
-        elementos.add(new AcaoDarItem(new ItemEquipavel("Espada de cobre", "Uma espada de cobre enferrujada", 0, 5, 0), 8));
+        elementos.add(new AcaoDarItem(new Arma("Espada de cobre", "Uma espada de cobre enferrujada", 0, 5, 0), 8));
 
         // Elemento 8
         elementos.add(new FimCena());

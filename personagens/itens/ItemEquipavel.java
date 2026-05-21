@@ -1,6 +1,6 @@
 package personagens.itens;
 
-public class ItemEquipavel extends Item {
+public abstract class ItemEquipavel extends Item {
     private int atributoAtaque;
     private int atributoDefesa;
 
