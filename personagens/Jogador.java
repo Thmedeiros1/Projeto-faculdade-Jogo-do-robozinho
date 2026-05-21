@@ -1,9 +1,15 @@
+package personagens;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import personagens.itens.Inventario;
 
 public class Jogador extends Personagem {
+	private Inventario inventario;
+
     public Jogador(String nome, int forca, int inteligencia, int destreza) {
         super(nome, forca, inteligencia, destreza); 
+		this.inventario = new Inventario();
     }
 
     public static Jogador criarJogador() {
@@ -53,13 +59,15 @@ public class Jogador extends Personagem {
 	    return new Jogador(nome, forca, inteligencia, destreza);
 	}
 
+	public Inventario getInventario() {
+		return inventario;
+	}
+
 	public String toString() {
 		return "Nome: " + this.getNome() + "\n__STATUS__" + "\nForça: " + this.getForca() + "\nInteligência: " + this.getInteligencia() + "\nDestreza: " + this.getDestreza();
 	}
     /* 
-    Jogador precisa ter um inventário para guardar Items e equipáveis
     Jogador precisa de atributos que representem Equipamentos atualmente equipados
-    Jogador precisa de métodos para equipar esses equipamentos
     Precisamos sobrescrever os getters de forca, inteligencia e destreza para contar os equipamentos
     */
 }

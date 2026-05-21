@@ -11,18 +11,20 @@ Esse pacote contêm todas as classes que envolvam o jogador, inimigos e NPCs. Es
 - ~~Criar método para 'criação de personagem' em Jogador que deverá receber do usuário o nome pro Jogador e a distribuição de status desejada~~
   - ~~Vejam 'private void criarJogador()' em Jogo.java feita pelo Thiago, ela é a referência pra esse método. Importante notar, o método feito por ele tem um erro na distribuição de status, então não adianta copiar e colar como está lá.~~
 
-- Criar as classes para Itens, ItensEquipáveis e Inventário
-  - Os dois possíveis itens equipáveis são 'Armadura' e 'Arma'.
-  - Itens comuns são o que o jogador conseguirá entre cenas e poderá usar para fazer trocas em lojas
-  - O Jogador terá um inventário, carregará itens e poderá equipar outros (tenham em mente que os itens equipáveis, quando equipados, vão prover acréscimos de status ao jogador)
-  - As classes Item.java, ItemEquipavel.java, Inventario.java e TipoItem.java feitas pelo Thiago são as referências, especialmente a Inventario.java.
+- ~~Criar as classes para Itens, ItensEquipáveis e Inventário~~
+  - ~~Os dois possíveis itens equipáveis são 'Armadura' e 'Arma'.~~
+  - ~~Itens comuns são o que o jogador conseguirá entre cenas e poderá usar para fazer trocas em lojas~~
+  - ~~O Jogador terá um inventário, carregará itens e poderá equipar outros (tenham em mente que os itens equipáveis, quando equipados, vão prover acréscimos de status ao jogador)~~
+  - ~~As classes Item.java, ItemEquipavel.java, Inventario.java e TipoItem.java feitas pelo Thiago são as referências, especialmente a Inventario.java.~~
 
 - Criar métodos em Jogador que permitam-o equipar equipamentos possuídos e novos getters de status do jogador que levem em consideração os equipamentos equipados. Eles devem dar @Override nos getters da classe Personagem.
+  - Avaliando a situação atual, eu penso que o melhor seria criar uma interface de menu que pode aparecer dentro de uma cena ou na transição de uma cena para outra que permite o usuário a mexer no inventário dele
+  - Também não sei sobre o que fazer com os status, como que eles influenciam a run
 
-- Criar getters em Jogador para o inventário dele e um para cada equipamento equipado.
+- ~~Criar getters em Jogador para o inventário dele e um para cada equipamento equipado.~~
 
-- A classe de Inimigo é uma classe genérica que vamos usar para inimigos comuns na criação de cenas mas ela também servirá como superclasse de inimigos mais especializados, como chefes
-  - Por enquanto não temos ideias de que tipo de inimigos especializados vamos fazer
+- ~~A classe de Inimigo é uma classe genérica que vamos usar para inimigos comuns na criação de cenas mas ela também servirá como superclasse de inimigos mais especializados, como chefes~~
+  - ~~Por enquanto não temos ideias de que tipo de inimigos especializados vamos fazer~~
 
 ## Package: construtoresDeCenas
 

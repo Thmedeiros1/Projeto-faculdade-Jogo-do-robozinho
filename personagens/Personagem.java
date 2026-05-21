@@ -1,3 +1,5 @@
+package personagens;
+
 public abstract class Personagem {
     private String nome;
     private int vida;
@@ -8,33 +10,33 @@ public abstract class Personagem {
     private int destreza;
 
     // Construtor usado para inimigos
-    public Personagem(String n, int v, int vM, int f, int i, int d) {
-        nome = n;
-        vida = v;
-        vidaMax = vM;
-        forca = f;
-        inteligencia = i;
-        destreza = d;
+    public Personagem(String nome, int vida, int vidaMax, int forca, int inteligencia, int destreza) {
+        this.nome = nome;
+        this.vida = vida;
+        this.vidaMax = vidaMax;
+        this.forca = forca;
+        this.inteligencia = inteligencia;
+        this.destreza = destreza;
     }
 
     // Construtor usado para o jogador
-     public Personagem(String n, int f, int i, int d) {
-        nome = n;
-        vida = 10;
-        vidaMax = 10;
-        forca = f;
-        inteligencia = i;
-        destreza = d;
+     public Personagem(String nome, int forca, int inteligencia, int destreza) {
+        this.nome = nome;
+        this.vida = 10;
+        this.vidaMax = 10;
+        this.forca = forca;
+        this.inteligencia = inteligencia;
+        this.destreza = destreza;
     }
 
     // Construtor usado para NPCs
-    public Personagem(String n) {
-        nome = n;
-        vida = 1;
-        vidaMax = 1;
-        forca = 1;
-        inteligencia = 1;
-        destreza = 1;
+    public Personagem(String nome) {
+        this.nome = nome;
+        this.vida = 1;
+        this.vidaMax = 1;
+        this.forca = 1;
+        this.inteligencia = 1;
+        this.destreza = 1;
     }
 
     public String getNome() {
