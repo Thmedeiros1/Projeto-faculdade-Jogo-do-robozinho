@@ -1,7 +1,7 @@
 package personagens;
 
 public class Inimigo extends Personagem {
-    public Inimigo(String nome, int vida, int vidaMax, int forca, int inteligencia, int destreza) {
-        super(nome, vida, vidaMax, forca, inteligencia, destreza);
+    public Inimigo(String nome, int vida, int vidaMax, int forca, int vigor, int fortitude) {
+        super(nome, vida, vidaMax, forca, vigor, fortitude);
     }   
 }
