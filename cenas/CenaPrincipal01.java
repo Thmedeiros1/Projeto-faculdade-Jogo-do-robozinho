@@ -1,3 +1,13 @@
+package cenas;
+
+import construtoresDeCenas.Cena;
+import construtoresDeCenas.Dialogo;
+import construtoresDeCenas.FimCena;
+import construtoresDeCenas.Opcao;
+import construtoresDeCenas.PontoDeEscolha;
+import construtoresDeCenas.acoes.AcaoDarItem;
+import personagens.itens.ItemEquipavel;
+
 public class CenaPrincipal01 extends Cena {
     public CenaPrincipal01() {
         super();
@@ -20,6 +30,13 @@ public class CenaPrincipal01 extends Cena {
         // Elemento 5
         elementos.add(new Dialogo("Então vamos correr!"));
         // Elemento 6
+        elementos.add(new Dialogo("Você encontra uma espada na grama!"));
+        // Elemento 7
+        elementos.add(new AcaoDarItem(new ItemEquipavel("Espada de cobre", "Uma espada de cobre enferrujada", 0, 5, 0), 8));
+
+        // Elemento 8
         elementos.add(new FimCena());
+
+
     }
 }

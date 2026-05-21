@@ -1,6 +1,12 @@
+package construtoresDeCenas;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+
+import construtoresDeCenas.acoes.Acao;
+import cenas.CenaAleatoria01;
+import personagens.Jogador;
 
 public abstract class Cena {
 
@@ -13,7 +19,7 @@ public abstract class Cena {
         this.elementos = new ArrayList<>();
     }
 
-    public void iniciarCena() {
+    public void iniciarCena(Jogador jogador) {
         while (elementoAtual != -1 && elementoAtual < elementos.size()) {
             ElementoCena elemento = elementos.get(elementoAtual);
 
@@ -38,6 +44,10 @@ public abstract class Cena {
                 int escolhaUsuario = getEscolhaUsuario(numOpcoes);
                 Opcao opcaoEscolhida = escolha.opcoes.get(escolhaUsuario - 1);
                 elementoAtual = opcaoEscolhida.proximoElemento;
+            } else
+            if (elemento instanceof Acao) {
+                Acao acao = (Acao) elemento;
+                elementoAtual = acao.executar(jogador);
             } else
             if (elemento instanceof FimCena) {
                 elementoAtual = -1;

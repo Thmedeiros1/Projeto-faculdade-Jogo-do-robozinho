@@ -1,3 +1,5 @@
+package construtoresDeCenas;
+
 public abstract class ElementoCena {
     // Essa classe está vazia
     // Porque o propósito dela é servir como superclasse

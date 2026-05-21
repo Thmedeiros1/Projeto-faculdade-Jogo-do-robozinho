@@ -1,3 +1,5 @@
+package construtoresDeCenas;
+
 public class Opcao {
     protected String texto;
     protected int proximoElemento;
