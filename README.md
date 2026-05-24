@@ -2,6 +2,8 @@
 
 - Erro no scanner ao trocar de cena
 - Loop infinito na primeira cena principal
+- Adicionar todos os comentários requeridos na APS
+- Frases de efeito para derrota, vitória...
 
 ### _Definições_
 

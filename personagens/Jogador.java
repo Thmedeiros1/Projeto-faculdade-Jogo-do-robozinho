@@ -65,12 +65,20 @@ public class Jogador extends Personagem {
 
 	@Override
 	public int getAtaque() {
-		return super.getAtaque() + this.getInventario().getArma().getAtributoAtaque();
+		if (this.getInventario().getArma() != null) {
+			return super.getAtaque() + this.getInventario().getArma().getAtributoAtaque();
+		} else {
+			return super.getAtaque();
+		}
 	}
 
 	@Override
 	public int getDefesa() {
-		return super.getDefesa() + this.getInventario().getArmadura().getAtributoDefesa();
+		if (this.getInventario().getArmadura() != null) {
+			return super.getDefesa() + this.getInventario().getArmadura().getAtributoDefesa();
+		} else {
+			return super.getDefesa();
+		}
 	}
 
 	public String toString() {

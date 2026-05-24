@@ -29,7 +29,14 @@ public class Inventario {
         }
         for (int i = 0; i < itens.size(); i++) {
             Item item = itens.get(i);
-            String tipo = (item instanceof ItemEquipavel) ? " [EQUIPÁVEL]" : " [MOEDA DE TROCA]";
+            String tipo;
+            if (item instanceof ItemEquipavel) {
+                tipo = " [EQUIPÁVEL]";
+            } else if (item instanceof ItemCura) {
+                tipo = " [CONSUMÍVEL - CURA]";
+            } else {
+                tipo = " [MOEDA DE TROCA]";
+            }
             System.out.println("   " + (i + 1) + " - " + item.getNome() + tipo);
         }
     }

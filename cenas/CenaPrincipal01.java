@@ -1,11 +1,13 @@
 package cenas;
 
 import construtoresDeCenas.Cena;
+import construtoresDeCenas.Combate;
 import construtoresDeCenas.Dialogo;
 import construtoresDeCenas.FimCena;
 import construtoresDeCenas.Opcao;
 import construtoresDeCenas.PontoDeEscolha;
 import construtoresDeCenas.acoes.AcaoDarItem;
+import personagens.Inimigo;
 import personagens.itens.Arma;
 
 public class CenaPrincipal01 extends Cena {
@@ -14,6 +16,10 @@ public class CenaPrincipal01 extends Cena {
 
         // Elemento 0
         elementos.add(new Dialogo("Bem vindo ao mundo!"));
+
+        elementos.add(new Combate(new Inimigo("APS", 10, 15, 2, 4, 1),
+            new Arma("Depressão encarnada", "Medo e tristeza", 5, 10, 0)));
+
         // Elemento 1
         elementos.add(new PontoDeEscolha("O que deseja fazer?",
         new Opcao("Não sei...", 2),

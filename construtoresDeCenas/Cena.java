@@ -49,6 +49,11 @@ public abstract class Cena {
                 Acao acao = (Acao) elemento;
                 elementoAtual = acao.executar(jogador);
             } else
+            if (elemento instanceof Combate) {
+                Combate combate = (Combate) elemento;
+                combate.iniciar(jogador);
+                elementoAtual++;
+            } else
             if (elemento instanceof FimCena) {
                 elementoAtual = -1;
             }

@@ -14,25 +14,25 @@ public abstract class Personagem {
     // Construtor usado para inimigos
     public Personagem(String nome, int vida, int vidaMax, int forca, int vigor, int fortitude) {
         this.nome = nome;
+        this.forca = forca;
+        this.vigor = vigor;
+        this.fortitude = fortitude;
         this.vida = vidaMax + this.vigor;
         this.vidaMax = vidaMax + this.vigor;
         this.ataque = this.forca;
         this.defesa = this.fortitude;
-        this.forca = forca;
-        this.vigor = vigor;
-        this.fortitude = fortitude;
     }
 
     // Construtor usado para o jogador
      public Personagem(String nome, int forca, int vigor, int fortitude) {
         this.nome = nome;
+        this.forca = forca;
+        this.vigor = vigor;
+        this.fortitude = fortitude;
         this.vida = 10 + this.vigor;
         this.vidaMax = 10 + this.vigor;
         this.ataque = this.forca;
         this.defesa = this.fortitude;
-        this.forca = forca;
-        this.vigor = vigor;
-        this.fortitude = fortitude;
     }
 
     // Construtor usado para NPCs
@@ -47,6 +47,14 @@ public abstract class Personagem {
         this.fortitude = 1;
     }
 
+    public void receberCura(int cura) {
+          this.vida -= cura;
+    }
+
+    public void receberDano(int dano) {
+          this.vida -= dano;
+    }
+
     public String getNome() {
          return nome; 
     }
@@ -54,6 +62,10 @@ public abstract class Personagem {
     public int getVida() {
          return vida; 
     }
+
+    public boolean estaVivo() {
+		return this.getVida() > 0;
+	}
 
      public int getDefesa() {
          return defesa; 
