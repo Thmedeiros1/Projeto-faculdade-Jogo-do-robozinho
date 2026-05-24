@@ -9,11 +9,10 @@ import cenas.CenaAleatoria01;
 import personagens.Jogador;
 
 public abstract class Cena {
-
+    public static final Scanner scanner = new Scanner(System.in);
     private static ArrayList<Integer> cenasAleatorias = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
     protected ArrayList<ElementoCena> elementos;
     private int elementoAtual = 0;
-    private Scanner scanner = new Scanner(System.in);
 
     public Cena() {
         this.elementos = new ArrayList<>();
@@ -61,7 +60,6 @@ public abstract class Cena {
         // Aqui podemos por a chamada ao menu de próximas opções do usuário
         // Como ver o inventário, status...
         System.out.println("A cena atual acabou!");
-        scanner.close();
     }
 
     private int getEscolhaUsuario(int numOpcoes) {

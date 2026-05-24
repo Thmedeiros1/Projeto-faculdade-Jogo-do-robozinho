@@ -1,7 +1,7 @@
 package personagens;
 
 import java.util.InputMismatchException;
-import java.util.Scanner;
+import construtoresDeCenas.Cena;
 import personagens.itens.Inventario;
 
 public class Jogador extends Personagem {
@@ -13,7 +13,6 @@ public class Jogador extends Personagem {
     }
 
     public static Jogador criarJogador() {
-		Scanner scanner = new Scanner(System.in);
 		String nome;
 		int forca = -1;
 		int vigor = -1;
@@ -21,7 +20,7 @@ public class Jogador extends Personagem {
 		int pontos = 10;
 
 		System.out.println("Insira o nome do protagonista: ");
-		nome = scanner.next();
+		nome = Cena.scanner.next();
 		
 	    System.out.println("\nDistribua " + pontos + " pontos entre os atributos:");
 	    System.out.println("   Força: Aumenta seu ataque");
@@ -31,7 +30,7 @@ public class Jogador extends Personagem {
 	    System.out.println(" Força: ");
 		while(forca < 0 || forca > pontos) {
 			try {
-				forca = scanner.nextInt();
+				forca = Cena.scanner.nextInt();
 				if (forca < 0 || forca > pontos) {
 					System.out.println("Entrada inválida! Digite um número igual ou menor que a quantidade de pontos.");
 				}
@@ -44,7 +43,7 @@ public class Jogador extends Personagem {
 	    System.out.println(" vigor: ");
 		while(vigor < 0 || vigor > pontos) {
 			try {
-				vigor = scanner.nextInt();
+				vigor = Cena.scanner.nextInt();
 				if (vigor < 0 || vigor > pontos) {
 					System.out.println("Entrada inválida! Digite um número igual ou menor que a quantidade de pontos.");
 				}

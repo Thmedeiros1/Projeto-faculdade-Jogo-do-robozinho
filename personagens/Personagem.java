@@ -48,7 +48,7 @@ public abstract class Personagem {
     }
 
     public void receberCura(int cura) {
-          this.vida -= cura;
+          this.vida += cura;
     }
 
     public void receberDano(int dano) {

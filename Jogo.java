@@ -1,14 +1,10 @@
-import cenas.CenaBairroEnchentes01;
-import cenas.CenaDistritoSucatas;
-import cenas.CenaDistritoSucatas02;
-import cenas.CenaDistritoSucatas03;
-import cenas.CenaPrincipal01;
+import cenas.*;
+import construtoresDeCenas.Cena;
 import construtoresDeCenas.GameOverException;
 import personagens.Jogador;
 
 public class Jogo {
-
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         try {
             Jogador jogador = Jogador.criarJogador();
             System.out.println(jogador.toString());
@@ -26,6 +22,8 @@ public class Jogo {
             cenaDistritoSucatas03.iniciarCena(jogador);
         } catch (GameOverException e) {
             System.out.println("FIM DE JOGO");
+        } finally {
+            Cena.scanner.close();
         }
     }
 }

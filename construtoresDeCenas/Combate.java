@@ -1,6 +1,5 @@
 package construtoresDeCenas;
 
-import java.util.Scanner;
 
 import personagens.Inimigo;
 import personagens.Jogador;
@@ -10,12 +9,10 @@ import personagens.itens.ItemConsumivel;
 public class Combate extends ElementoCena {
     private Inimigo inimigo;
     private Item recompensa;
-    private Scanner sc;
 
     public Combate(Inimigo inimigo, Item recompensa) {
         this.inimigo = inimigo;
         this.recompensa = recompensa;
-        this.sc = new Scanner(System.in);
     }
     
     public void iniciar(Jogador jogador) {
@@ -37,7 +34,7 @@ public class Combate extends ElementoCena {
             while (escolha < 0) {
                 System.out.print("Escolha: ");
                 try {
-                    escolha = Integer.parseInt(sc.next());
+                    escolha = Integer.parseInt(Cena.scanner.next());
                 } catch (NumberFormatException e) {
                     System.out.println("Opção inválida!");
                 }
@@ -66,7 +63,7 @@ public class Combate extends ElementoCena {
 
                     int idx = -2;
                     try {
-                        idx = Integer.parseInt(sc.next());
+                        idx = Integer.parseInt(Cena.scanner.next());
                     } catch (NumberFormatException e) {
                         System.out.println("Inválido!");
                         continue;
@@ -75,7 +72,7 @@ public class Combate extends ElementoCena {
                         continue;
                     }
                     try {
-                        Item item = jogador.getInventario().getItens().get(idx);
+                        Item item = jogador.getInventario().getItens().get(idx - 1);
                         if (item instanceof ItemConsumivel) {
                             ((ItemConsumivel) item).consumir(jogador);
                             acaoRealizada = true;

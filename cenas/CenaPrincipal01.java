@@ -9,6 +9,7 @@ import construtoresDeCenas.PontoDeEscolha;
 import construtoresDeCenas.acoes.AcaoDarItem;
 import personagens.Inimigo;
 import personagens.itens.Arma;
+import personagens.itens.ItemCura;
 
 public class CenaPrincipal01 extends Cena {
     public CenaPrincipal01() {
@@ -16,6 +17,8 @@ public class CenaPrincipal01 extends Cena {
 
         // Elemento 0
         elementos.add(new Dialogo("Bem vindo ao mundo!"));
+
+        elementos.add(new AcaoDarItem(new ItemCura("Poção de cura", "Uma poção de cura", 5), 2));
 
         elementos.add(new Combate(new Inimigo("APS", 10, 15, 2, 4, 1),
             new Arma("Depressão encarnada", "Medo e tristeza", 5, 10, 0)));
@@ -42,7 +45,5 @@ public class CenaPrincipal01 extends Cena {
 
         // Elemento 8
         elementos.add(new FimCena());
-
-
     }
 }
