@@ -3,7 +3,9 @@ package construtoresDeCenas;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// "Herança"
 public class PontoDeEscolha extends ElementoCena {
+    // "Encapsulamento"
     protected String pergunta;
     protected ArrayList<Opcao> opcoes;
 
@@ -15,6 +17,7 @@ public class PontoDeEscolha extends ElementoCena {
     (Por isso o construtor aqui está criando um ArrayList
     tomando uma quantidade de opções para transformar em lista invés de já receber a lista pronta)
     */
+   // "Método Construtor"
     public PontoDeEscolha(String pergunta, Opcao... opcoes) {
         this.pergunta = pergunta;
         this.opcoes = new ArrayList<>(Arrays.asList(opcoes));

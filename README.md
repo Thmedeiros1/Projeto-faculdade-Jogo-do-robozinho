@@ -1,8 +1,9 @@
 # Lista de tarefas
 
 - ~~Erro no scanner ao trocar de cena~~
-- Adicionar todos os comentários requeridos na APS
+- ~~Adicionar todos os comentários requeridos na APS~~
 - Frases de efeito para derrota, vitória...
+- Investigar erro em equipar e desequipar armas/armaduras
 
 ### _Definições_
 

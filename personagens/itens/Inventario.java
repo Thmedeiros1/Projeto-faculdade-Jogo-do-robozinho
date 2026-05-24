@@ -3,10 +3,12 @@ package personagens.itens;
 import java.util.ArrayList;
 
 public class Inventario {
+    // "Encapsulamento"
     private ArrayList<Item> itens;
     private Arma arma;
     private Armadura armadura;
     
+    // "Método Construtor"
     public Inventario() {
         this.itens = new ArrayList<>();
         this.arma = null;
@@ -30,6 +32,7 @@ public class Inventario {
         for (int i = 0; i < itens.size(); i++) {
             Item item = itens.get(i);
             String tipo;
+            // "Polimorfismo de Classe"
             if (item instanceof ItemEquipavel) {
                 tipo = " [EQUIPÁVEL]";
             } else if (item instanceof ItemCura) {
@@ -41,6 +44,7 @@ public class Inventario {
         }
     }
 
+    // "Polimorfismo de Classe"
     public void equiparItem(ItemEquipavel itemParaEquipar) {
         if (itemParaEquipar instanceof Arma) {
             equiparArma((Arma) itemParaEquipar);
@@ -50,6 +54,7 @@ public class Inventario {
         }
     }
 
+    // "Polimorfismo de Classe"
     public void desequiparItem(ItemEquipavel itemEquipado) {
         if (itemEquipado == null) {
             return;

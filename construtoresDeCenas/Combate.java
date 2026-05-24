@@ -6,10 +6,13 @@ import personagens.Jogador;
 import personagens.itens.Item;
 import personagens.itens.ItemConsumivel;
 
+// "Herança"
 public class Combate extends ElementoCena {
+    // "Encapsulamento"
     private Inimigo inimigo;
     private Item recompensa;
 
+    // "Método Construtor"
     public Combate(Inimigo inimigo, Item recompensa) {
         this.inimigo = inimigo;
         this.recompensa = recompensa;
@@ -33,6 +36,7 @@ public class Combate extends ElementoCena {
             int escolha = -1;
             while (escolha < 0) {
                 System.out.print("Escolha: ");
+                // "Tratamento de Excessões"
                 try {
                     escolha = Integer.parseInt(Cena.scanner.next());
                 } catch (NumberFormatException e) {
@@ -62,6 +66,7 @@ public class Combate extends ElementoCena {
                     System.out.print("Qual item usar? (0 para cancelar): ");
 
                     int idx = -2;
+                    // "Tratamento de Excessões"
                     try {
                         idx = Integer.parseInt(Cena.scanner.next());
                     } catch (NumberFormatException e) {
@@ -71,6 +76,8 @@ public class Combate extends ElementoCena {
                     if (idx == 0) {
                         continue;
                     }
+                    // "Tratamento de Excessões"
+                    // "Polimorfismo de Classes"
                     try {
                         Item item = jogador.getInventario().getItens().get(idx - 1);
                         if (item instanceof ItemConsumivel) {

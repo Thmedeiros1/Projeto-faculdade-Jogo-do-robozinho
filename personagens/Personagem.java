@@ -1,6 +1,8 @@
 package personagens;
 
+// "Classe abstrata"
 public abstract class Personagem {
+    //"Encapsulamento"
     private String nome;
     private int vida;
     private final int vidaMax;
@@ -12,6 +14,8 @@ public abstract class Personagem {
     private int fortitude;
 
     // Construtor usado para inimigos
+    // "Sobrecarga"
+    // "Método Construtor"
     public Personagem(String nome, int vida, int vidaMax, int forca, int vigor, int fortitude) {
         this.nome = nome;
         this.forca = forca;
@@ -24,6 +28,8 @@ public abstract class Personagem {
     }
 
     // Construtor usado para o jogador
+    // "Sobrecarga"
+    // "Método Construtor"
      public Personagem(String nome, int forca, int vigor, int fortitude) {
         this.nome = nome;
         this.forca = forca;
@@ -36,6 +42,8 @@ public abstract class Personagem {
     }
 
     // Construtor usado para NPCs
+    // "Sobrecarga"
+    // "Método Construtor"
     public Personagem(String nome) {
         this.nome = nome;
         this.vida = 1;

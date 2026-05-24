@@ -8,12 +8,16 @@ import construtoresDeCenas.acoes.Acao;
 import cenas.CenaAleatoria01;
 import personagens.Jogador;
 
+// "Classe Abstrata"
 public abstract class Cena {
+    // "Atributo Final" (o Scanner utilizado pelo jogo como um todo e o controlador de cenas aleatórias)
     public static final Scanner scanner = new Scanner(System.in);
+    // "Encapsulamento"
     private static ArrayList<Integer> cenasAleatorias = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
     protected ArrayList<ElementoCena> elementos;
     private int elementoAtual = 0;
 
+    // "Método Construtor"
     public Cena() {
         this.elementos = new ArrayList<>();
     }
@@ -22,6 +26,7 @@ public abstract class Cena {
         while (elementoAtual != -1 && elementoAtual < elementos.size()) {
             ElementoCena elemento = elementos.get(elementoAtual);
 
+            // "Polimorfismo de Classes"
             if (elemento instanceof Dialogo) {
                 Dialogo dialogo = (Dialogo) elemento;
                 System.out.println(dialogo.texto);
@@ -66,6 +71,7 @@ public abstract class Cena {
         int escolha = -1;
         while (escolha < 1 || escolha > numOpcoes) {
             System.out.print("Digite o número da sua escolha: ");
+            // "Tratamento de Excessões"
             try {
                 escolha = Integer.parseInt(scanner.nextLine());
                 if (escolha < 1 || escolha > numOpcoes) {
@@ -78,6 +84,7 @@ public abstract class Cena {
         return escolha;
     }
 
+    // "Método estático"
     public static Cena getCenaAleatoria() {
         int numeroAleatorio = (int)((Math.random() * cenasAleatorias.size()));
         switch(numeroAleatorio) {

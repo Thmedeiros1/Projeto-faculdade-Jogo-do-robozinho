@@ -4,14 +4,18 @@ import java.util.InputMismatchException;
 import construtoresDeCenas.Cena;
 import personagens.itens.Inventario;
 
+// "Herança"
 public class Jogador extends Personagem {
+	// "Encapsulamento"
 	private Inventario inventario;
 
+	// "Método Construtor"
     public Jogador(String nome, int forca, int vigor, int fortitude) {
         super(nome, forca, vigor, fortitude); 
 		this.inventario = new Inventario();
     }
 
+	// "Método Estático"
     public static Jogador criarJogador() {
 		String nome;
 		int forca = -1;
@@ -29,6 +33,7 @@ public class Jogador extends Personagem {
 
 	    System.out.println(" Força: ");
 		while(forca < 0 || forca > pontos) {
+			// "Tratamento de Exceções"
 			try {
 				forca = Cena.scanner.nextInt();
 				if (forca < 0 || forca > pontos) {
@@ -42,6 +47,7 @@ public class Jogador extends Personagem {
 
 	    System.out.println(" vigor: ");
 		while(vigor < 0 || vigor > pontos) {
+			// "Tratamento de Exceções"
 			try {
 				vigor = Cena.scanner.nextInt();
 				if (vigor < 0 || vigor > pontos) {
@@ -62,6 +68,7 @@ public class Jogador extends Personagem {
 		return inventario;
 	}
 
+	// "Sobrescrita"
 	@Override
 	public int getAtaque() {
 		if (this.getInventario().getArma() != null) {
@@ -71,6 +78,7 @@ public class Jogador extends Personagem {
 		}
 	}
 
+	// "Sobrescrita"
 	@Override
 	public int getDefesa() {
 		if (this.getInventario().getArmadura() != null) {
@@ -80,11 +88,9 @@ public class Jogador extends Personagem {
 		}
 	}
 
+	// "Sobrescrita"
+	@Override
 	public String toString() {
 		return "Nome: " + this.getNome() + "\n__STATUS__" + "\nForça: " + this.getForca() + "\nVigor: " + this.getVigor() + "\nFortitude: " + this.getFortitude();
 	}
-    /* 
-    Jogador precisa de atributos que representem Equipamentos atualmente equipados
-    Precisamos sobrescrever os getters de forca, vigor e fortitude para contar os equipamentos
-    */
 }
