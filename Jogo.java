@@ -14,17 +14,9 @@ public class Jogo {
             System.out.println(jogador.toString());
 
             // "Classes Finais"
-            final CenaPrincipal01 cenaPrincipal01 = new CenaPrincipal01();
-            final CenaBairroEnchentes01 cenaBairroEnchentes01 = new CenaBairroEnchentes01(jogador);
-            final CenaDistritoSucatas cenaDistritoSucatas = new CenaDistritoSucatas();
-            final CenaDistritoSucatas02 cenaDistritoSucatas02 = new CenaDistritoSucatas02();
-            final CenaDistritoSucatas03 cenaDistritoSucatas03 = new CenaDistritoSucatas03();
+            final CenaPrincipal01 cenaPrincipal01 = new CenaPrincipal01(jogador);
 
             cenaPrincipal01.iniciarCena(jogador);
-            cenaBairroEnchentes01.iniciarCena(jogador);
-            cenaDistritoSucatas.iniciarCena(jogador);
-            cenaDistritoSucatas02.iniciarCena(jogador);
-            cenaDistritoSucatas03.iniciarCena(jogador);
         } 
         // GameOverException é uma excessão que pode ser jogada pela classe Combate
         // Caso o jogador perca o combate (forçando o programa a encerrar)
