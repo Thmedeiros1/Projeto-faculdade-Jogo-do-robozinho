@@ -27,7 +27,7 @@ public class Jogador extends Personagem {
 		int pontos = 10;
 
 		System.out.println("Insira o nome do protagonista: ");
-		nome = Cena.scanner.next();
+		nome = Cena.scanner.nextLine();
 		
 	    System.out.println("\nDistribua " + pontos + " pontos entre os atributos:");
 	    System.out.println("   Força: Aumenta seu ataque");
@@ -38,11 +38,11 @@ public class Jogador extends Personagem {
 		while(forca < 0 || forca > pontos) {
 			// "Tratamento de Exceções"
 			try {
-				forca = Cena.scanner.nextInt();
+				forca = Integer.parseInt(Cena.scanner.nextLine());
 				if (forca < 0 || forca > pontos) {
 					System.out.println("Entrada inválida! Digite um número igual ou menor que a quantidade de pontos.");
 				}
-			} catch (InputMismatchException e) {
+			} catch (NumberFormatException e) {
 				System.out.println("Entrada inválida! Digite um número.");
 			}
 		}
@@ -52,11 +52,11 @@ public class Jogador extends Personagem {
 		while(vigor < 0 || vigor > pontos) {
 			// "Tratamento de Exceções"
 			try {
-				vigor = Cena.scanner.nextInt();
+				vigor = Integer.parseInt(Cena.scanner.nextLine());
 				if (vigor < 0 || vigor > pontos) {
 					System.out.println("Entrada inválida! Digite um número igual ou menor que a quantidade de pontos.");
 				}
-			} catch (InputMismatchException e) {
+			} catch (NumberFormatException e) {
 				System.out.println("Entrada inválida! Digite um número.");
 			}
 		}
@@ -82,7 +82,7 @@ public class Jogador extends Personagem {
         int idx;
         // "Tratamento de Excessões"
         try {
-            idx = Integer.parseInt(Cena.scanner.next());
+            idx = Integer.parseInt(Cena.scanner.nextLine());
         } catch (NumberFormatException e) {
             System.out.println("Inválido!");
             return false;

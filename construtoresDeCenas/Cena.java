@@ -30,8 +30,7 @@ public abstract class Cena {
             if (elemento instanceof Dialogo) {
                 Dialogo dialogo = (Dialogo) elemento;
                 System.out.println(dialogo.texto);
-                System.out.println("(Insira qualquer tecla para continuar...)");
-                scanner.nextLine();
+                Cena.pausar();
                 elementoAtual++;
             } else 
             if (elemento instanceof PontoDeEscolha) {
@@ -52,6 +51,7 @@ public abstract class Cena {
             if (elemento instanceof Acao) {
                 Acao acao = (Acao) elemento;
                 elementoAtual = acao.executar(jogador);
+                Cena.pausar();
             } else
             if (elemento instanceof Combate) {
                 Combate combate = (Combate) elemento;
@@ -62,9 +62,13 @@ public abstract class Cena {
                 elementoAtual = -1;
             }
         }
-        // Aqui podemos por a chamada ao menu de próximas opções do usuário
-        // Como ver o inventário, status...
-        System.out.println("A cena atual acabou!");
+        System.out.println("A cena atual acabou...");
+        Cena.pausar();
+        System.out.println("Deseja fazer algo em seu inventário?");
+        Cena.pausar();
+        jogador.menuInventario();
+        System.out.println("...");
+        Cena.pausar();
     }
 
     private int getEscolhaUsuario(int numOpcoes) {
@@ -82,6 +86,11 @@ public abstract class Cena {
             }
         }
         return escolha;
+    }
+
+    public static void pausar() {
+        System.out.println("(Pressione enter...)");
+        scanner.nextLine();
     }
 
     // "Método estático"

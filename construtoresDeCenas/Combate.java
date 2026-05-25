@@ -37,7 +37,7 @@ public class Combate extends ElementoCena {
                 System.out.print("Escolha: ");
                 // "Tratamento de Excessões"
                 try {
-                    escolha = Integer.parseInt(Cena.scanner.next());
+                    escolha = Integer.parseInt(Cena.scanner.nextLine());
                 } catch (NumberFormatException e) {
                     System.out.println("Opção inválida!");
                 }
@@ -50,9 +50,10 @@ public class Combate extends ElementoCena {
                         danoCausado = 0;
                     }
                     inimigo.receberDano(danoCausado);
-                    System.out.println("ATAQUE! Dano: " + danoCausado + " (! utilizando " + 
+                    System.out.println("ATAQUE! Dano: " + danoCausado + "! utilizando " + 
                         (jogador.getInventario().getArma() != null ? jogador.getInventario().getArma().getNome() 
-                            : "força bruta!)"));
+                            : "força bruta!"));
+                    Cena.pausar();
                     acaoRealizada = true;
                     break;
                 case 2:
@@ -60,6 +61,7 @@ public class Combate extends ElementoCena {
                     break;
                 default:
                     System.out.println("❌ Opção inválida!");
+                    Cena.pausar();
             }
 
             // Turno do inimigo
@@ -71,15 +73,20 @@ public class Combate extends ElementoCena {
                 System.out.println("\n--- Turno do Inimigo ---");
                 jogador.receberDano(danoCausado);
                 System.out.println(inimigo.getNome() + " atacou! Dano: " + danoCausado + "!");  
+                Cena.pausar();
             }
         }
         if (!inimigo.estaVivo()) {
             System.out.println("\nVITÓRIA! " + inimigo.getNome() + " foi derrotado!");
+            Cena.pausar();
             System.out.println(inimigo.getNome() + " deixou cair " + recompensa.getNome() + "!");
+            Cena.pausar();
             jogador.getInventario().adicionarItem(recompensa);
+            Cena.pausar();
         } else if (!jogador.estaVivo()) {
             System.out.println("Derrota...");
-            throw new GameOverException("O jogador foi derrotado em");
+            Cena.pausar();
+            throw new GameOverException("O jogador foi derrotado em combate");
         }
     }
 }   
