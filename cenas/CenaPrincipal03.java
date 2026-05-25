@@ -4,7 +4,6 @@ import construtoresDeCenas.*;
 import construtoresDeCenas.acoes.*;
 import personagens.Inimigo;
 import personagens.Jogador;
-import personagens.itens.Arma;
 import personagens.itens.Armadura;
 import personagens.itens.ItemCura;
 

@@ -93,9 +93,7 @@ public class CenaPrincipal02 extends Cena {
         elementos.add(new Dialogo("Você: Infelizmente, seu pai faleceu e ele me pediu para trazer isso, sinto muito."));
         
         elementos.add(new Dialogo("*Você entrega a caixa de música*"));
-        
-        jogador.getInventario().removerItem(jogador.getInventario().getItens().get(jogador.getInventario().getItens().size() - 1));
-        
+                
         elementos.add(new Dialogo("Olga fica chocada com a notícia e fica em silêncio por um tempo."));
         
         elementos.add(new Dialogo("Ela então diz:"));

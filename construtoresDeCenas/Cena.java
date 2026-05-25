@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import construtoresDeCenas.acoes.Acao;
 import cenas.CenaAleatoria01;
+import cenas.CenaAleatoria02;
 import personagens.Jogador;
 
 // "Classe Abstrata"
@@ -100,10 +101,10 @@ public abstract class Cena {
             // Criar um case para cada cena aleatória
             // Atualmente só tem case 0 como exemplo
             case 0:
-                cenasAleatorias.remove(numeroAleatorio);
                 return (Cena) new CenaAleatoria01();
-            default:
-                return (Cena) new CenaAleatoria01();
+            case 1:
+                return (Cena) new CenaAleatoria02();
         }
+        return null;
     }
 }
