@@ -1,6 +1,5 @@
 package personagens;
 
-import java.util.InputMismatchException;
 import construtoresDeCenas.Cena;
 import personagens.itens.Inventario;
 import personagens.itens.Item;
