@@ -5,6 +5,7 @@ import construtoresDeCenas.acoes.*;
 import personagens.Inimigo;
 import personagens.Jogador;
 import personagens.itens.Arma;
+import personagens.itens.ItemCura;
 
 public class CenaPrincipal02 extends Cena {
     public CenaPrincipal02(Jogador jogador) {
@@ -54,7 +55,7 @@ public class CenaPrincipal02 extends Cena {
         
         elementos.add(new Dialogo("Ela tem formato semelhante ao de uma mulher humana, mas completamente de água.\nRainha das Águas: “QUEM OUSA NAVEGAR POR MINHAS ÁGUAS??”"));
         
-        elementos.add(new Combate(new Inimigo("Rainha das Águas", 40, 40, 3, 4, 2), null));
+        elementos.add(new Combate(new Inimigo("Rainha das Águas", 40, 40, 3, 4, 2), new ItemCura("Pedaços de sucata", "Placas de metal pequenas", 5)));
         
         elementos.add(new Dialogo("Alguns segundos depois, você lembra de Otto e vai em sua procura.\nVocê o avista de longe em cima do teto de outra casa."));
         

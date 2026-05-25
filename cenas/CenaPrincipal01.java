@@ -172,7 +172,7 @@ public class CenaPrincipal01 extends Cena {
         
         elementos.add(new Dialogo("Você então enxerga seu inimigo, era um grande caminhão compactador mutante,\nEla também te vê, e corre em sua direção."));
 
-        elementos.add(new Combate(new Inimigo("Grande Caminhão Compactador Mutante", 35, 35, 5, 4, 2), null));
+        elementos.add(new Combate(new Inimigo("Grande Caminhão Compactador Mutante", 35, 35, 5, 4, 2),new ItemCura("Pedaços de sucata", "Placas de metal pequenas", 5)));
         
         elementos.add(new Dialogo("Após derrotá-lo, pedaços de metal que compunham seu corpo estavam espalhados pelo ambiente.\nEmbora ainda esteja longe de seu objetivo final, pelo menos o Distrito das Sucatas estaria mais seguro daqui pra frente."));
 

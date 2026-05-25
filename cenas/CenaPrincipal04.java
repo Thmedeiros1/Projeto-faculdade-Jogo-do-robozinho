@@ -3,6 +3,7 @@ package cenas;
 import construtoresDeCenas.*;
 import personagens.Inimigo;
 import personagens.Jogador;
+import personagens.itens.ItemCura;
 
 public class CenaPrincipal04 extends Cena {
     public CenaPrincipal04(Jogador jogador) {
@@ -50,7 +51,7 @@ public class CenaPrincipal04 extends Cena {
         
         elementos.add(new Dialogo("O Coração: HAHAHAH! Que piada!!"));
         
-        elementos.add(new Combate(new Inimigo("O Coração", 15, 15, 5, 3, 5), null));
+        elementos.add(new Combate(new Inimigo("O Coração", 15, 15, 5, 3, 5), new ItemCura("Pedaços de sucata", "Placas de metal pequenas", 5)));
         
         elementos.add(new Dialogo("O Coração parecia quase derrotado."));
         
@@ -62,7 +63,7 @@ public class CenaPrincipal04 extends Cena {
         
         elementos.add(new Dialogo("Você se prepara para continuar a batalha."));
         
-        elementos.add(new Combate(new Inimigo("O Coração de Planta", 30, 30, 10, 3, 5), null));
+        elementos.add(new Combate(new Inimigo("O Coração de Planta", 30, 30, 10, 3, 5), new ItemCura("Pedaços de sucata", "Placas de metal pequenas", 5)));
         
         elementos.add(new Dialogo("Após quase totalmente derrotado,\no Coração reúne suas últimas forças.\nSoltando líquidos radioativos pelo meio de seus caules.\nSe tornando cada vez mais assustador."));
         
@@ -70,7 +71,7 @@ public class CenaPrincipal04 extends Cena {
         
         elementos.add(new Dialogo("Embora cansado, você não desiste.\nVocê irá até o fim."));
         
-        elementos.add(new Combate(new Inimigo("O Coração de Planta", 60, 60, 15, 3, 5), null));
+        elementos.add(new Combate(new Inimigo("O Coração de Planta", 60, 60, 15, 3, 5), new ItemCura("Pedaços de sucata", "Placas de metal pequenas", 5)));
         
         elementos.add(new Dialogo("Você deu seu golpe final"));
         

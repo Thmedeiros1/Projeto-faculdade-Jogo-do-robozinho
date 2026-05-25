@@ -109,7 +109,7 @@ public class CenaPrincipal03 extends Cena {
         
         elementos.add(new Dialogo("CEO Parasita: VOCÊ NÃO VAI ME PARAR!"));
         
-        elementos.add(new Combate(new Inimigo("CEO Parasita", 50, 50, 5, 7, 4), null));
+        elementos.add(new Combate(new Inimigo("CEO Parasita", 50, 50, 5, 7, 4), new ItemCura("Pedaços de sucata", "Placas de metal pequenas", 5)));
         
         elementos.add(new Dialogo("Após derrotar o CEO Parasita, você encontra um pen drive"));
         
