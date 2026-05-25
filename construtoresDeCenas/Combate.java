@@ -79,7 +79,7 @@ public class Combate extends ElementoCena {
         if (!inimigo.estaVivo()) {
             System.out.println("\nVITÓRIA! " + inimigo.getNome() + " foi derrotado!");
             Cena.pausar();
-            System.out.println(inimigo.getNome() + " deixou cair " + recompensa.getNome() + "!");
+            System.out.println(inimigo.getNome() + " deixou cair " + recompensa.getNome() != null ? recompensa.getNome() : "nada" + "!");
             Cena.pausar();
             jogador.getInventario().adicionarItem(recompensa);
             Cena.pausar();
