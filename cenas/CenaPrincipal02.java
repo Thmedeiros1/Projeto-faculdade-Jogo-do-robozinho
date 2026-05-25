@@ -5,8 +5,6 @@ import construtoresDeCenas.acoes.*;
 import personagens.Inimigo;
 import personagens.Jogador;
 import personagens.itens.Arma;
-import personagens.itens.Armadura;
-import personagens.itens.ItemCura;
 
 public class CenaPrincipal02 extends Cena {
     public CenaPrincipal02(Jogador jogador) {
