@@ -5,7 +5,6 @@ import construtoresDeCenas.Combate;
 import construtoresDeCenas.Dialogo;
 import construtoresDeCenas.FimCena;
 import personagens.Inimigo;
-import personagens.Jogador;
 
 public class CenaAleatoria02 extends Cena {
         public CenaAleatoria02() {
