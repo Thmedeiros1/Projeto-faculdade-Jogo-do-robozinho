@@ -14,7 +14,7 @@ public abstract class Cena {
     // "Atributo Final" (o Scanner utilizado pelo jogo como um todo e o controlador de cenas aleatórias)
     public static final Scanner scanner = new Scanner(System.in);
     // "Encapsulamento"
-    private static ArrayList<Integer> cenasAleatorias = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+    private static ArrayList<Integer> cenasAleatorias = new ArrayList<Integer>(Arrays.asList(0, 1));
     protected ArrayList<ElementoCena> elementos;
     private int elementoAtual = 0;
 
@@ -97,14 +97,15 @@ public abstract class Cena {
     // "Método estático"
     public static Cena getCenaAleatoria() {
         int numeroAleatorio = (int)((Math.random() * cenasAleatorias.size()));
+        Cena cenaAleatoria = new CenaAleatoria01();
         switch(numeroAleatorio) {
             // Criar um case para cada cena aleatória
             // Atualmente só tem case 0 como exemplo
             case 0:
-                return (Cena) new CenaAleatoria01();
+                cenaAleatoria = (Cena) new CenaAleatoria01();
             case 1:
-                return (Cena) new CenaAleatoria02();
+                cenaAleatoria = (Cena) new CenaAleatoria02();
         }
-        return null;
+        return cenaAleatoria;
     }
 }
