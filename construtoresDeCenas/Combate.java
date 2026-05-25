@@ -4,7 +4,6 @@ package construtoresDeCenas;
 import personagens.Inimigo;
 import personagens.Jogador;
 import personagens.itens.Item;
-import personagens.itens.ItemConsumivel;
 
 // "Herança"
 public class Combate extends ElementoCena {
@@ -57,38 +56,7 @@ public class Combate extends ElementoCena {
                     acaoRealizada = true;
                     break;
                 case 2:
-                    if (jogador.getInventario().getItens().isEmpty()) {
-                        System.out.println("Inventário vazio!");
-                        continue;
-                    }
-                    System.out.println("\nItens disponíveis: ");
-                    jogador.getInventario().listar();
-                    System.out.print("Qual item usar? (0 para cancelar): ");
-
-                    int idx = -2;
-                    // "Tratamento de Excessões"
-                    try {
-                        idx = Integer.parseInt(Cena.scanner.next());
-                    } catch (NumberFormatException e) {
-                        System.out.println("Inválido!");
-                        continue;
-                    }
-                    if (idx == 0) {
-                        continue;
-                    }
-                    // "Tratamento de Excessões"
-                    // "Polimorfismo de Classes"
-                    try {
-                        Item item = jogador.getInventario().getItens().get(idx - 1);
-                        if (item instanceof ItemConsumivel) {
-                            ((ItemConsumivel) item).consumir(jogador);
-                            acaoRealizada = true;
-                        } else {
-                            System.out.println("Item inválido para consumo em batalha");
-                        }
-                    } catch(IndexOutOfBoundsException e) {
-                        System.out.println("Opção de item inválida");
-                    }
+                    acaoRealizada = jogador.menuInventario();
                     break;
                 default:
                     System.out.println("❌ Opção inválida!");

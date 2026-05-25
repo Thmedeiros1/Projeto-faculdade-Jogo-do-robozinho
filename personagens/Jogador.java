@@ -3,6 +3,9 @@ package personagens;
 import java.util.InputMismatchException;
 import construtoresDeCenas.Cena;
 import personagens.itens.Inventario;
+import personagens.itens.Item;
+import personagens.itens.ItemConsumivel;
+import personagens.itens.ItemEquipavel;
 
 // "Herança"
 public class Jogador extends Personagem {
@@ -66,6 +69,48 @@ public class Jogador extends Personagem {
 
 	public Inventario getInventario() {
 		return inventario;
+	}
+
+	public boolean menuInventario() {
+		if (this.getInventario().getItens().isEmpty()) {
+            System.out.println("Inventário vazio!");
+            return false;
+        }
+        System.out.println("\nItens disponíveis: ");
+        this.getInventario().listar();
+        System.out.print("Qual item usar? (0 para cancelar): ");
+        int idx;
+        // "Tratamento de Excessões"
+        try {
+            idx = Integer.parseInt(Cena.scanner.next());
+        } catch (NumberFormatException e) {
+            System.out.println("Inválido!");
+            return false;
+        }
+        if (idx == 0) {
+            return false;
+        }
+        // "Tratamento de Excessões"
+        // "Polimorfismo de Classes"
+        try {
+            Item item = this.getInventario().getItens().get(idx - 1);
+            if (item instanceof ItemConsumivel) {
+                ((ItemConsumivel) item).consumir(this);
+                return true;
+            } else
+			if (item instanceof ItemEquipavel) {
+				inventario.equiparItem((ItemEquipavel)(item));
+				return true;
+			}
+            else {
+                System.out.println("Item inválido para consumo");
+				return false;
+			}
+		}
+		catch(IndexOutOfBoundsException e) {
+            System.out.println("Opção de item inválida");
+			return false;
+        }
 	}
 
 	// "Sobrescrita"

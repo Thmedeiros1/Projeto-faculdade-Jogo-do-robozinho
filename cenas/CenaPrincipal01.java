@@ -6,9 +6,11 @@ import construtoresDeCenas.Dialogo;
 import construtoresDeCenas.FimCena;
 import construtoresDeCenas.Opcao;
 import construtoresDeCenas.PontoDeEscolha;
+import construtoresDeCenas.acoes.AcaoAbrirInventario;
 import construtoresDeCenas.acoes.AcaoDarItem;
 import personagens.Inimigo;
 import personagens.itens.Arma;
+import personagens.itens.Armadura;
 import personagens.itens.ItemCura;
 
 public class CenaPrincipal01 extends Cena {
@@ -19,14 +21,17 @@ public class CenaPrincipal01 extends Cena {
         elementos.add(new Dialogo("Bem vindo ao mundo!"));
 
         elementos.add(new AcaoDarItem(new ItemCura("Poção de cura", "Uma poção de cura", 5), 2));
+        elementos.add(new AcaoDarItem(new Arma("Espada de cobre", "Uma espada de cobre enferrujada", 0, 5, 0), 3));
+        elementos.add(new AcaoDarItem(new Armadura("Armadura de Cobre", "Uma armadura de cobre enferrujada", 0, 0, 5), 4));
 
         elementos.add(new Combate(new Inimigo("APS", 10, 15, 2, 4, 1),
             new Arma("Depressão encarnada", "Medo e tristeza", 5, 10, 0)));
 
+        elementos.add(new AcaoAbrirInventario(6));
         // Elemento 1
         elementos.add(new PontoDeEscolha("O que deseja fazer?",
-        new Opcao("Não sei...", 2),
-        new Opcao("Quero correr!", 5)
+        new Opcao("Não sei...", 7),
+        new Opcao("Quero correr!", 10)
         ));
 
         // Elemento 2
@@ -41,7 +46,6 @@ public class CenaPrincipal01 extends Cena {
         // Elemento 6
         elementos.add(new Dialogo("Você encontra uma espada na grama!"));
         // Elemento 7
-        elementos.add(new AcaoDarItem(new Arma("Espada de cobre", "Uma espada de cobre enferrujada", 0, 5, 0), 8));
 
         // Elemento 8
         elementos.add(new FimCena());
